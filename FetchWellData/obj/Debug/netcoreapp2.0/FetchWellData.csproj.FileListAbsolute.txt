@@ -1,0 +1,11 @@
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Debug\netcoreapp2.0\FetchWellData.deps.json
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Debug\netcoreapp2.0\FetchWellData.runtimeconfig.json
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Debug\netcoreapp2.0\FetchWellData.runtimeconfig.dev.json
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Debug\netcoreapp2.0\FetchWellData.dll
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Debug\netcoreapp2.0\FetchWellData.pdb
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.csprojAssemblyReference.cache
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.csproj.CoreCompileInputs.cache
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.AssemblyInfoInputs.cache
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.AssemblyInfo.cs
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.dll
+c:\users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Debug\netcoreapp2.0\FetchWellData.pdb
