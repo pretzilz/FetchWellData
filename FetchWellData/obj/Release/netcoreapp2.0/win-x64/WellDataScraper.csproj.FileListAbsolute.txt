@@ -1,0 +1,14 @@
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\hostpolicy.dll
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\hostfxr.dll
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.exe
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.deps.json
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.runtimeconfig.json
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.runtimeconfig.dev.json
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.dll
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\bin\Release\netcoreapp2.0\win-x64\WellDataScraper.pdb
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.csprojAssemblyReference.cache
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.csproj.CoreCompileInputs.cache
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.AssemblyInfoInputs.cache
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.AssemblyInfo.cs
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.dll
+C:\Users\kurt.kaufman\Source\Repos\FetchWellData\FetchWellData\obj\Release\netcoreapp2.0\win-x64\WellDataScraper.pdb

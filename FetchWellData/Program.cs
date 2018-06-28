@@ -20,15 +20,16 @@ namespace WellDataScraper
 
         public static string fileIn;
         public static string fileOut;
+        public static int numMonths;
         static void Main(string[] args)
         {
             finalString = new StringBuilder();
-            finalString.Append("Well Number,Month of Production,Days,BBLS Oil,BBLS Water,MCF Prod\n");
+            finalString.Append("API Number,Well Number,Month of Production,Year of Production,Days,BBLS Oil,BBLS Water,MCF Prod\n");
             errorList = new StringBuilder();
             errorList.Append("Well Number,Error\n");
             wellNumbers = new List<int>();
 
-            getFilePaths();
+            getInputs();
 
             readFileNumbers();
 
@@ -60,13 +61,13 @@ namespace WellDataScraper
                     }
                 }
             }
-            File.WriteAllText(fileOut + "\\Output.csv" , finalString.ToString());
-            File.WriteAllText(fileOut + "\\Errors.csv", errorList.ToString());
+            File.WriteAllText(fileOut + "\\Output_" + DateTime.Now.ToShortDateString().Replace("/", "") + ".csv" , finalString.ToString());
+            File.WriteAllText(fileOut + "\\Errors_" + DateTime.Now.ToShortDateString().Replace("/", "") + ".csv", errorList.ToString());
             Console.WriteLine("Completed. Press enter to exit...");
             Console.ReadLine();
         }
 
-        public static void getFilePaths()
+        public static void getInputs()
         {
             Console.WriteLine("Path to input file:");
             fileIn = Console.ReadLine();
@@ -82,6 +83,8 @@ namespace WellDataScraper
                 Console.WriteLine("Invalid directory path. Path for output file:");
                 fileOut = Console.ReadLine();
             }
+            Console.WriteLine("Number of months to fetch per well:");
+            numMonths = Int32.Parse(Console.ReadLine());
         }
 
         public static void readFileNumbers()
@@ -166,8 +169,8 @@ namespace WellDataScraper
     
             //otherwise grab all of the tr elements containing the data and throw them in an array
             //note: yes, this is magic here - it is strictly based on the page layout staying exactly the same
-            var htmlRows = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[2].Element("table").ChildNodes.Where(node => node.OriginalName == "tr").Take(6);
-
+            var htmlRows = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[2].Element("table").ChildNodes.Where(node => node.OriginalName == "tr").Take(numMonths);
+            var apiNumber = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[1].ChildNodes[1].ChildNodes[1].Elements("b").ElementAt(1).InnerHtml;
             StringBuilder tempString = new StringBuilder();
           
             //actually pull the data out by doing a little bit more magic
@@ -185,8 +188,13 @@ namespace WellDataScraper
                  * 8: Vent/Flare
                  */
                 var nodeChildren = node.ChildNodes;
+                tempString.Append(apiNumber + ", ");                //API Number
                 tempString.Append(wellNumber + ",");                //Well Number (not in HTML)
-                tempString.Append(nodeChildren[1].InnerHtml + ","); //Date
+                string date = nodeChildren[1].InnerHtml.ToString();
+                string month = date.Substring(0, date.IndexOf("-"));
+                string year = date.Substring(date.IndexOf("-") + 1, date.Length - 2);
+                tempString.Append(month + ",");                     //Month
+                tempString.Append(year + ",");                      //Year
                 tempString.Append(nodeChildren[2].InnerHtml + ","); //Days
                 tempString.Append(nodeChildren[3].InnerHtml + ","); //BBLS Oil
                 tempString.Append(nodeChildren[5].InnerHtml + ","); //BBLS Water
