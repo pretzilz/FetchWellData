@@ -61,8 +61,8 @@ namespace WellDataScraper
                     }
                 }
             }
-            File.WriteAllText(fileOut + "\\Output_" + DateTime.Now.ToShortDateString().Replace("/", "") + ".csv" , finalString.ToString());
-            File.WriteAllText(fileOut + "\\Errors_" + DateTime.Now.ToShortDateString().Replace("/", "") + ".csv", errorList.ToString());
+            File.WriteAllText(fileOut + "\\" + DateTime.Now.ToShortDateString().Replace("/", "") + "_Output.csv" , finalString.ToString());
+            File.WriteAllText(fileOut + "\\" + DateTime.Now.ToShortDateString().Replace("/", "") + "_Errors.csv", errorList.ToString());
             Console.WriteLine("Completed. Press enter to exit...");
             Console.ReadLine();
         }
@@ -171,6 +171,7 @@ namespace WellDataScraper
             //note: yes, this is magic here - it is strictly based on the page layout staying exactly the same
             var htmlRows = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[2].Element("table").ChildNodes.Where(node => node.OriginalName == "tr").Take(numMonths);
             var apiNumber = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[1].ChildNodes[1].ChildNodes[1].Elements("b").ElementAt(1).InnerHtml;
+            apiNumber = apiNumber.Replace("-", "");
             StringBuilder tempString = new StringBuilder();
           
             //actually pull the data out by doing a little bit more magic
@@ -188,11 +189,15 @@ namespace WellDataScraper
                  * 8: Vent/Flare
                  */
                 var nodeChildren = node.ChildNodes;
-                tempString.Append(apiNumber + ", ");                //API Number
+                tempString.Append(apiNumber + ",");                //API Number
                 tempString.Append(wellNumber + ",");                //Well Number (not in HTML)
                 string date = nodeChildren[1].InnerHtml.ToString();
+                if (date.Length == 6)   //the month is between 1 and 9
+                {
+                    date = "0" + date;
+                }
                 string month = date.Substring(0, date.IndexOf("-"));
-                string year = date.Substring(date.IndexOf("-") + 1, date.Length - 2);
+                string year = date.Substring(date.IndexOf("-") + 1, date.Length - 3);
                 tempString.Append(month + ",");                     //Month
                 tempString.Append(year + ",");                      //Year
                 tempString.Append(nodeChildren[2].InnerHtml + ","); //Days
