@@ -170,7 +170,10 @@ namespace WellDataScraper
             //otherwise grab all of the tr elements containing the data and throw them in an array
             //note: yes, this is magic here - it is strictly based on the page layout staying exactly the same
             var htmlRows = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[2].Element("table").ChildNodes.Where(node => node.OriginalName == "tr").Take(numMonths);
-            var apiNumber = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[1].ChildNodes[1].ChildNodes[1].Elements("b").ElementAt(1).InnerHtml;
+
+            //edit 1/29/20: the final ChildNodes was modified to reference the element at index 2 instead of index 1,
+            //as there is now a heading noting the removal of a graph due to the deprecation of flash.
+            var apiNumber = HTML.DocumentNode.SelectNodes("//body/table")[1].ChildNodes[1].ChildNodes[1].ChildNodes[2].Elements("b").ElementAt(1).InnerHtml;
             apiNumber = apiNumber.Replace("-", "");
             StringBuilder tempString = new StringBuilder();
           
